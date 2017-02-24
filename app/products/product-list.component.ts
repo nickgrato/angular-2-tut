@@ -1,5 +1,5 @@
-import{Component} from '@angular/core';
-
+import{ Component } from '@angular/core';
+import{ IProduct } from './product';
 @Component({
     selector: 'pm-products',
     templateUrl:`app/products/product-list.component.html`
@@ -10,7 +10,13 @@ export class ProductListComponent{
    imageMargin: number = 2;
    showImage: boolean = false;
    listFilter: string = 'cart';
-   products: any[] = [
+
+   /*IProduct is an 'interface' object, basically it is a
+    resource to make the object (in this case products) to be 
+    stronly typed. So for example if we had productAge, it would show 
+    and error because productAge is not of type IProduct.
+    */
+   products: IProduct[] = [
     {
         "productId": 1,
         "productName": "Leaf Rake",

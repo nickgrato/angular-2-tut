@@ -1,5 +1,6 @@
 // main entry point
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /*NOTE: This is the app entery point. This file really only needs to be touched one time
 that is to iport your root module in this case AppModule and 'bootstrapping' the aplication
 to that module. THAT'S IT.
