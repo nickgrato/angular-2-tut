@@ -8,6 +8,8 @@ import { ProductListComponent }  from './products/product-list.component';
 import { FirstLastPipe } from './shared/custom-pipes/firstLast';
 import { productFilterPipe } from './shared/custom-pipes/product-filter.pipe';
 
+import { StarComponent } from './shared/star.component'
+
  
  
 /*
@@ -23,7 +25,8 @@ BOOTSTRAP - The root component for the app - AppComponent
     AppComponent,
     ProductListComponent,
     FirstLastPipe,
-    productFilterPipe ],
+    productFilterPipe,
+    StarComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

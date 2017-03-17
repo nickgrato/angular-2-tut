@@ -41,6 +41,8 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- in this example we are adding the custom filter and "listFilter" 
+                          the ng-model value from the inpit. -->
                     <tr *ngFor='let product of products | productFilter:listFilter'>
                         <td>
                             <!-- this will also work src={{product.imageUrl}} -->
@@ -56,7 +58,16 @@
                         <td>{{ product.releaseDate }}</td>
                         <!-- currency type has three params - explained code:show symbole?: digit info-->
                         <td>{{ product.price | currency:'USD':true:'1.2-2' }}</td>
-                        <td>{{ product.starRating }}</td>
+                        <td>
+                            <!--ratingClicked is an out - event emmiter that when that function is ran in
+                            the child component is will emmit to function we see here OnRatingCliked and five it 
+                            value from the child component up to the parent component - this is a poor example but we
+                            change the title of this page with the data emited up from the child. -->
+                            <ai-star 
+                                [rating]='product.starRating'
+                                (ratingClicked)="onRatingClicked($event)">
+                            </ai-star>
+                        </td>
                     </tr>
                 </tbody>
             </table>
