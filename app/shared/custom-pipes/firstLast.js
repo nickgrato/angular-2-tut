@@ -10,6 +10,11 @@ var core_1 = require("@angular/core");
 var FirstLastPipe = (function () {
     function FirstLastPipe() {
     }
+    /*
+      value - value coming in
+      args - argument(s) coming in
+      : return value
+    */
     FirstLastPipe.prototype.transform = function (value, args) {
         console.log(value);
         return 'C.P. @ work - ' + value;
@@ -18,6 +23,7 @@ var FirstLastPipe = (function () {
 }());
 FirstLastPipe = __decorate([
     core_1.Pipe({
+        //Name of the pipe when used in the html template.
         name: 'FirstLast'
     })
 ], FirstLastPipe);
