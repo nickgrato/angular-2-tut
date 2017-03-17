@@ -1,11 +1,11 @@
-import{ Component } from '@angular/core';
+import{ Component, OnInit } from '@angular/core';
 import{ IProduct } from './product';
 @Component({
     selector: 'pm-products',
     templateUrl:`app/products/product-list.component.html`,
     styleUrls: ['app/products/product-list.component.css']
 })
-export class ProductListComponent{
+export class ProductListComponent implements OnInit{
    pageTitle: string = 'Product List';
    imageWidth: number = 50;
    imageMargin: number = 2;
@@ -27,10 +27,7 @@ export class ProductListComponent{
         "price": 19.95,
         "starRating": 3.2,
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
-    }
-    
-    
-    ,
+    },
     {
         "productId": 2,
         "productName": "Garden Cart",
@@ -46,4 +43,13 @@ export class ProductListComponent{
    toggleImage(): void {
        this.showImage = !this.showImage;
    }
+   
+
+   //Since ProductListComponent impliments ngOnInit we have to have an ngOnInit function
+   // or we will get error "Property 'ngOnInit' is missing in type 'ProductListComponent'."
+   ngOnInit(): void{
+       console.log('on init');
+   }
+
+
 }

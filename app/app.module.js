@@ -12,6 +12,7 @@ var forms_1 = require("@angular/forms"); //example ng-model
 var app_component_1 = require("./app.component");
 var product_list_component_1 = require("./products/product-list.component");
 var firstLast_1 = require("./shared/custom-pipes/firstLast");
+var product_filter_pipe_1 = require("./shared/custom-pipes/product-filter.pipe");
 /*
 IMPORTS - External modules we want available to this module "BrowserModule".
 DECLATATIONS - These are all the components that we want in this module.
@@ -29,7 +30,8 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
             product_list_component_1.ProductListComponent,
-            firstLast_1.FirstLastPipe
+            firstLast_1.FirstLastPipe,
+            product_filter_pipe_1.productFilterPipe
         ],
         bootstrap: [app_component_1.AppComponent]
     })

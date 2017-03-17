@@ -6,6 +6,8 @@ import { AppComponent }  from './app.component';
 import { ProductListComponent }  from './products/product-list.component';
 
 import { FirstLastPipe } from './shared/custom-pipes/firstLast';
+import { productFilterPipe } from './shared/custom-pipes/product-filter.pipe';
+
  
  
 /*
@@ -20,7 +22,8 @@ BOOTSTRAP - The root component for the app - AppComponent
   declarations: [ 
     AppComponent,
     ProductListComponent,
-    FirstLastPipe],
+    FirstLastPipe,
+    productFilterPipe ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

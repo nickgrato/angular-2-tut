@@ -41,7 +41,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'>
+                    <tr *ngFor='let product of products | productFilter:listFilter'>
                         <td>
                             <!-- this will also work src={{product.imageUrl}} -->
                             <!-- unrealistic data binding below with the css -->

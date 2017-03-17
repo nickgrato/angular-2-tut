@@ -46,6 +46,11 @@ var ProductListComponent = (function () {
     ProductListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
     };
+    //Since ProductListComponent impliments ngOnInit we have to have an ngOnInit function
+    // or we will get error "Property 'ngOnInit' is missing in type 'ProductListComponent'."
+    ProductListComponent.prototype.ngOnInit = function () {
+        console.log('on init');
+    };
     return ProductListComponent;
 }());
 ProductListComponent = __decorate([
