@@ -42,6 +42,7 @@ var ProductListComponent = (function () {
             }
         ];
     }
+    //TS does not requrire function key word
     ProductListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
     };

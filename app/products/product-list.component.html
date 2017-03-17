@@ -26,6 +26,7 @@
                 <thead>
                     <tr>
                         <th>
+                            <!-- quick example to toggle string in button with function inside interpolation. -->
                             <button 
                                 class='btn btn-primary' 
                                 (click)='toggleImage()'>
@@ -51,9 +52,9 @@
                                  *ngIf="showImage">
                         </td>
                         <td>{{ product.productName }}</td>
-                        <td>{{ product.productCode | lowercase }}</td>
+                        <td>{{ product.productCode | uppercase }}</td>
                         <td>{{ product.releaseDate }}</td>
-                        <!-- currency explained code:show symbole?: digit info-->
+                        <!-- currency type has three params - explained code:show symbole?: digit info-->
                         <td>{{ product.price | currency:'USD':true:'1.2-2' }}</td>
                         <td>{{ product.starRating }}</td>
                     </tr>

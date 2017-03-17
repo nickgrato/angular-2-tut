@@ -38,6 +38,7 @@ export class ProductListComponent{
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
    }];
 
+   //TS does not requrire function key word
    toggleImage(): void {
        this.showImage = !this.showImage;
    }
