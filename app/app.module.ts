@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';//example ng-model
 
 import { AppComponent }  from './app.component';
 import { ProductListComponent }  from './products/product-list.component';
+
+import { FirstLastPipe } from './shared/custom-pipes/firstLast';
  
  
 /*
@@ -17,7 +19,8 @@ BOOTSTRAP - The root component for the app - AppComponent
   FormsModule ],
   declarations: [ 
     AppComponent,
-    ProductListComponent],
+    ProductListComponent,
+    FirstLastPipe],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

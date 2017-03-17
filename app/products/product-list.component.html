@@ -51,7 +51,7 @@
                                  [style.margin.px]="imageMargin"
                                  *ngIf="showImage">
                         </td>
-                        <td>{{ product.productName }}</td>
+                        <td>{{ product.productName | FirstLast }}</td>
                         <td>{{ product.productCode | uppercase }}</td>
                         <td>{{ product.releaseDate }}</td>
                         <!-- currency type has three params - explained code:show symbole?: digit info-->

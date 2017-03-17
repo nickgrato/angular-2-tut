@@ -10,17 +10,15 @@ var core_1 = require("@angular/core");
 var FirstLastPipe = (function () {
     function FirstLastPipe() {
     }
-    FirstLastPipe.prototype.transform = function (value) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
+    FirstLastPipe.prototype.transform = function (value, args) {
+        console.log(value);
+        return 'C.P. @ work - ' + value;
     };
     return FirstLastPipe;
 }());
 FirstLastPipe = __decorate([
     core_1.Pipe({
-        name: 'FirtLast'
+        name: 'FirstLast'
     })
 ], FirstLastPipe);
 exports.FirstLastPipe = FirstLastPipe;

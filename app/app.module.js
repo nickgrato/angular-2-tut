@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser"); // ex ngIf
 var forms_1 = require("@angular/forms"); //example ng-model
 var app_component_1 = require("./app.component");
 var product_list_component_1 = require("./products/product-list.component");
+var firstLast_1 = require("./shared/custom-pipes/firstLast");
 /*
 IMPORTS - External modules we want available to this module "BrowserModule".
 DECLATATIONS - These are all the components that we want in this module.
@@ -27,7 +28,8 @@ AppModule = __decorate([
             forms_1.FormsModule],
         declarations: [
             app_component_1.AppComponent,
-            product_list_component_1.ProductListComponent
+            product_list_component_1.ProductListComponent,
+            firstLast_1.FirstLastPipe
         ],
         bootstrap: [app_component_1.AppComponent]
     })
