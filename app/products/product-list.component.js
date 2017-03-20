@@ -5,10 +5,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ProductListComponent = (function () {
     function ProductListComponent() {
+        //////////////
+        // BINDINGS //
+        //////////////
+        this.onRatingClicked = new core_1.EventEmitter();
         this.pageTitle = 'Product List';
         this.imageWidth = 50;
         this.imageMargin = 2;
@@ -41,6 +48,7 @@ var ProductListComponent = (function () {
                 "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
             }
         ];
+        // this.pageTitle = 'Product List: ' + message;
     }
     //TS does not requrire function key word
     ProductListComponent.prototype.toggleImage = function () {
@@ -51,12 +59,15 @@ var ProductListComponent = (function () {
     ProductListComponent.prototype.ngOnInit = function () {
         console.log('on init');
     };
-    //
-    ProductListComponent.prototype.onRatingClicked = function (message) {
-        this.pageTitle = 'Product List: ' + message;
+    ProductListComponent.prototype.ratingClicked = function (message) {
+        this.onRatingClicked.emit(message);
     };
     return ProductListComponent;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], ProductListComponent.prototype, "onRatingClicked", void 0);
 ProductListComponent = __decorate([
     core_1.Component({
         selector: 'pm-products',

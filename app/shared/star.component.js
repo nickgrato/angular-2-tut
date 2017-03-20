@@ -12,34 +12,36 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var StarComponent = (function () {
     function StarComponent() {
-        //this function is type event emitter and the pay load will be a string
-        //and then we set to a new instance of EventEmitter payload string. 
-        //we decorate it with the output decorator so the parent can respond to this event.
+        //////////////
+        // BINDINGS //
+        //////////////
         this.ratingClicked = new core_1.EventEmitter();
     }
-    StarComponent.prototype.ngOnChanges = function () {
-        this.starWidth = this.rating * 86 / 5;
-    };
+    //this function is type event emitter and the pay load will be a string
+    //and then we set to a new instance of EventEmitter payload string. 
+    //we decorate it with the output decorator so the parent can respond to this event.
     StarComponent.prototype.onClick = function () {
         this.ratingClicked.emit("The rating " + this.rating + " was clicked!");
+    };
+    StarComponent.prototype.ngOnChanges = function () {
+        this.starWidth = this.rating * 86 / 5;
     };
     return StarComponent;
 }());
 __decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], StarComponent.prototype, "rating", void 0);
-__decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
 ], StarComponent.prototype, "ratingClicked", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], StarComponent.prototype, "rating", void 0);
 StarComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'ai-star',
         templateUrl: './star.component.html'
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], StarComponent);
 exports.StarComponent = StarComponent;
 //# sourceMappingURL=star.component.js.map

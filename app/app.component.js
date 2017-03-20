@@ -11,12 +11,15 @@ var AppComponent = (function () {
     function AppComponent() {
         this.pageTitle = 'Acme Product Managment';
     }
+    AppComponent.prototype.onRatingClicked = function (message) {
+        console.log(message + 'from the top');
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'pm-app',
-        template: "\n    <div><h1>{{pageTitle}}</h1>\n        <pm-products></pm-products>\n    </div>\n    "
+        template: "\n    <div><h1>{{pageTitle}}</h1>\n        <pm-products (onRatingClicked)=\"onRatingClicked($event)\"></pm-products>\n    </div>\n    "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

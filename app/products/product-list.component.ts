@@ -1,4 +1,4 @@
-import{ Component, OnInit } from '@angular/core';
+import{ Component, OnInit, Output, EventEmitter } from '@angular/core';
 import{ IProduct } from './product';
 @Component({
     selector: 'pm-products',
@@ -6,6 +6,13 @@ import{ IProduct } from './product';
     styleUrls: ['app/products/product-list.component.css']
 })
 export class ProductListComponent implements OnInit{
+   //////////////
+   // BINDINGS //
+   //////////////
+   @Output() onRatingClicked : EventEmitter<string> = new EventEmitter<string>();
+
+
+
    pageTitle: string = 'Product List';
    imageWidth: number = 50;
    imageMargin: number = 2;
@@ -51,9 +58,11 @@ export class ProductListComponent implements OnInit{
        console.log('on init');
    }
 
-   //
-   onRatingClicked(message : string) :void{
-       this.pageTitle = 'Product List: ' + message;
+   ratingClicked(message : string) :void{
+       this.onRatingClicked.emit(message);
    }
+
+   // this.pageTitle = 'Product List: ' + message;
+
 
 }
