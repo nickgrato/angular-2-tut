@@ -11,33 +11,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var product_service_1 = require("./product.service");
 var ProductDetailComponent = (function () {
     //Constructor to inject dependencies.
     /* Note: we are setting a variable in this case _route to type ActivatedRoute
     it is vary similur are saying _route = new ActivateRoute  _route then has all
     of ActivatedRoute's methods available to it. */
-    function ProductDetailComponent(_route, _router) {
+    function ProductDetailComponent(_route, _router, _productService) {
         this._route = _route;
         this._router = _router;
+        this._productService = _productService;
         this.pageTitle = 'Prodict Detail';
     }
     ProductDetailComponent.prototype.ngOnInit = function () {
         // id = _route "ActivatedRoute" snapshop of the parameter "id" -- // Object {id: "8"}
-        var id = +this._route.snapshot.params['id'];
-        this.pageTitle += ": " + id;
+        var _this = this;
+        //here we are listening "subscribing to" this get call.
+        //
+        this.sub = this._route.params.subscribe(function (params) {
+            var id = +params['id'];
+            _this.getProduct(id);
+        });
+    };
+    ProductDetailComponent.prototype.ngOnDestroy = function () {
+        this.sub.unsubscribe();
+    };
+    ProductDetailComponent.prototype.getProduct = function (id) {
+        var _this = this;
+        this._productService.getProduct(id).subscribe(function (product) { return _this.product = product; }, function (error) { return _this.errorMessage = error; });
     };
     ProductDetailComponent.prototype.onBack = function () {
         this._router.navigate(['/products']);
+    };
+    ProductDetailComponent.prototype.onRatingClicked = function (message) {
+        this.pageTitle = 'Product Detail: ' + message;
     };
     return ProductDetailComponent;
 }());
 ProductDetailComponent = __decorate([
     core_1.Component({
-        selector: '',
         templateUrl: './app/products/product-detail.component.html'
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router])
+        router_1.Router,
+        product_service_1.ProductService])
 ], ProductDetailComponent);
 exports.ProductDetailComponent = ProductDetailComponent;
 //# sourceMappingURL=product-detail.component.js.map

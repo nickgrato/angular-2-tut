@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';//routing
 import { BrowserModule } from '@angular/platform-browser';// ex ngIf
-import { FormsModule } from '@angular/forms';//example ng-model
 import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { WelcomeComponent }  from './home/welcome.component';
 
-import { ProductListComponent }  from './products/product-list.component';
-import { ProductDetailGuard }  from './products/product-guard.service';
-import { ProductDetailComponent }  from './products/product-detail.component';
+//test
 import { FirstLastPipe } from './shared/custom-pipes/firstLast';
-import { productFilterPipe } from './shared/custom-pipes/product-filter.pipe';
-import { StarComponent } from './shared/star.component'
 
+
+import { ProductModule } from './products/product.module';
  
  
 /*
@@ -25,11 +22,9 @@ BOOTSTRAP - The root component for the app - AppComponent
 @NgModule({
   imports: [ 
     BrowserModule,
-    FormsModule,
+    ProductModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: 'products', component: ProductListComponent },
-      { path: 'product/:id', canActivate: [ProductDetailGuard], component: ProductDetailComponent },
       { path: 'welcome', component: WelcomeComponent},
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' },  // typically for 404 page    
@@ -38,13 +33,8 @@ BOOTSTRAP - The root component for the app - AppComponent
   declarations: [ 
     AppComponent,
     WelcomeComponent,
-    ProductListComponent,
-    ProductDetailComponent,
-    FirstLastPipe,
-    productFilterPipe,
-    StarComponent 
+    FirstLastPipe
     ],
-  providers: [ ProductDetailGuard],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
