@@ -8,6 +8,7 @@ import { AppComponent }  from './app.component';
 import { WelcomeComponent }  from './home/welcome.component';
 
 import { ProductListComponent }  from './products/product-list.component';
+import { ProductDetailGuard }  from './products/product-guard.service';
 import { ProductDetailComponent }  from './products/product-detail.component';
 import { FirstLastPipe } from './shared/custom-pipes/firstLast';
 import { productFilterPipe } from './shared/custom-pipes/product-filter.pipe';
@@ -28,7 +29,7 @@ BOOTSTRAP - The root component for the app - AppComponent
     HttpModule,
     RouterModule.forRoot([
       { path: 'products', component: ProductListComponent },
-      { path: 'product/:id', component: ProductDetailComponent },
+      { path: 'product/:id', canActivate: [ProductDetailGuard], component: ProductDetailComponent },
       { path: 'welcome', component: WelcomeComponent},
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' },  // typically for 404 page    
@@ -43,6 +44,7 @@ BOOTSTRAP - The root component for the app - AppComponent
     productFilterPipe,
     StarComponent 
     ],
+  providers: [ ProductDetailGuard],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
