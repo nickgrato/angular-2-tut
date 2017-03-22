@@ -1,4 +1,6 @@
-import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { ProductService } from '../products/product.service';
+import{ IProduct } from '../products/product';
 
 @Component({
     moduleId: module.id,
@@ -6,27 +8,34 @@ import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core
     templateUrl: './star.component.html'
 })
 export class StarComponent implements OnChanges {
+    //Constructor to inject dependencies. 
+    constructor(private _productService : ProductService ){}
     
     //////////////
     // BINDINGS //
     //////////////
     @Output() ratingClicked : EventEmitter<string> = new EventEmitter<string>();
-    
     @Input() rating: number;
 
-    starWidth: number
+    starWidth: number;
+    products: IProduct[] = [];
     
-    //this function is type event emitter and the pay load will be a string
-    //and then we set to a new instance of EventEmitter payload string. 
-    //we decorate it with the output decorator so the parent can respond to this event.
+    ngOninit(): void{
+        
+        
+     }
     
 
     onClick(): void {
-         this.ratingClicked.emit(`The rating ${this.rating} was clicked!`);
+         this.ratingClicked.emit(`this is a message from gand child to container!!`);        
      }
 
     ngOnChanges() {
         this.starWidth = this.rating * 86/5;
      }
+
+     
+
+     
 
 } 

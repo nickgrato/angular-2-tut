@@ -10,18 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var product_service_1 = require("../products/product.service");
 var StarComponent = (function () {
-    function StarComponent() {
+    //Constructor to inject dependencies. 
+    function StarComponent(_productService) {
+        this._productService = _productService;
         //////////////
         // BINDINGS //
         //////////////
         this.ratingClicked = new core_1.EventEmitter();
+        this.products = [];
     }
-    //this function is type event emitter and the pay load will be a string
-    //and then we set to a new instance of EventEmitter payload string. 
-    //we decorate it with the output decorator so the parent can respond to this event.
+    StarComponent.prototype.ngOninit = function () {
+    };
     StarComponent.prototype.onClick = function () {
-        this.ratingClicked.emit("The rating " + this.rating + " was clicked!");
+        this.ratingClicked.emit("this is a message from gand child to container!!");
     };
     StarComponent.prototype.ngOnChanges = function () {
         this.starWidth = this.rating * 86 / 5;
@@ -41,7 +44,8 @@ StarComponent = __decorate([
         moduleId: module.id,
         selector: 'ai-star',
         templateUrl: './star.component.html'
-    })
+    }),
+    __metadata("design:paramtypes", [product_service_1.ProductService])
 ], StarComponent);
 exports.StarComponent = StarComponent;
 //# sourceMappingURL=star.component.js.map

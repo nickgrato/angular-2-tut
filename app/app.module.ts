@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';//routing
 import { BrowserModule } from '@angular/platform-browser';// ex ngIf
 import { FormsModule } from '@angular/forms';//example ng-model
+import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
-import { ProductListComponent }  from './products/product-list.component';
+import { WelcomeComponent }  from './home/welcome.component';
 
+import { ProductListComponent }  from './products/product-list.component';
+import { ProductDetailComponent }  from './products/product-detail.component';
 import { FirstLastPipe } from './shared/custom-pipes/firstLast';
 import { productFilterPipe } from './shared/custom-pipes/product-filter.pipe';
-
 import { StarComponent } from './shared/star.component'
 
  
@@ -19,14 +22,27 @@ BOOTSTRAP - The root component for the app - AppComponent
 */
 
 @NgModule({
-  imports: [ BrowserModule,
-  FormsModule ],
+  imports: [ 
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot([
+      { path: 'products', component: ProductListComponent },
+      { path: 'product/:id', component: ProductDetailComponent },
+      { path: 'welcome', component: WelcomeComponent},
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full' },  // typically for 404 page    
+    ]) 
+    ],
   declarations: [ 
     AppComponent,
+    WelcomeComponent,
     ProductListComponent,
+    ProductDetailComponent,
     FirstLastPipe,
     productFilterPipe,
-    StarComponent ],
+    StarComponent 
+    ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
