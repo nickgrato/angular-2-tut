@@ -28,7 +28,7 @@ HOW TO START APPLICATION.
 - Components 
 
 - Date Binding
-    - Custome Events (Note: To see an example of an event sending data up two comoponents to its grandparent - click the starts in the product line item ).
+    - Custome Events (Note: To see an example of an event sending data up two comoponents to its grandparent, click the starts in the product line item ).
 
 - Interface
     - IProduct interface example in products folder.
